@@ -1,7 +1,7 @@
 import { io } from "socket.io-client";
 
 // Prevent socket from connecting immediately
-const socket = io("http://localhost:5000", {
+const socket = io("https://mywhatsapp-ymha.onrender.com", {
   autoConnect: false,
 });
 

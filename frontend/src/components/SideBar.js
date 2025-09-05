@@ -20,7 +20,7 @@ const SideBar = (props) => {
     const socket = useContext(SocketContext);
 
     const fetchConversations= async()=>{
-      const response= await fetch("http://localhost:5000/api/auth/fetchconversations",{
+      const response= await fetch("https://mywhatsapp-ymha.onrender.com/api/auth/fetchconversations",{
         method: "POST",
         headers:{
           "auth-token": localStorage.getItem("token")
@@ -76,7 +76,7 @@ const SideBar = (props) => {
 
     const addFriend= async()=>{
       const email= prompt("Enter the email:");
-      const response= await fetch("http://localhost:5000/api/messages/createconversation", {
+      const response= await fetch("https://mywhatsapp-ymha.onrender.com/api/messages/createconversation", {
         method: "POST",
         headers: {
           "auth-token": localStorage.getItem("token"),
@@ -90,7 +90,7 @@ const SideBar = (props) => {
     }
     const createGroup= async()=>{
       const groupName= prompt("Enter the group name:");
-      const response= await fetch("http://localhost:5000/api/messages/creategroup", {
+      const response= await fetch("https://mywhatsapp-ymha.onrender.com/api/messages/creategroup", {
         method: "POST",
         headers: {
           "auth-token": localStorage.getItem("token"),

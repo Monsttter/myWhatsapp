@@ -15,7 +15,7 @@ const Home = () => {
     const dispatch= useDispatch();
 
     const fetchUser= async()=>{
-        const response= await fetch("http://localhost:5000/api/auth/fetchuser",{
+        const response= await fetch("https://mywhatsapp-ymha.onrender.com/api/auth/fetchuser",{
             headers:{
                 "auth-token": localStorage.getItem("token")
             }

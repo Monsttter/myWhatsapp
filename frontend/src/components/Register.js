@@ -24,7 +24,7 @@ const Register = () => {
             formData.append(key, credentials[key]);
         }
         // console.log()
-        const response= await fetch("http://localhost:5000/api/auth/register", {
+        const response= await fetch("https://mywhatsapp-ymha.onrender.com/api/auth/register", {
             method: "POST",
             body: formData
         });

@@ -23,7 +23,7 @@ const ChatBar = () => {
     const socket = useContext(SocketContext);
 
     const fetchMessages= async()=>{
-      const response= await fetch(`http://localhost:5000/api/messages/fetchmessages/${conversation._id}`,{
+      const response= await fetch(`https://mywhatsapp-ymha.onrender.com/api/messages/fetchmessages/${conversation._id}`,{
         method: "GET",
         headers: {
           "auth-token": localStorage.getItem("token")
@@ -70,7 +70,7 @@ const ChatBar = () => {
       if(message.file){
         const formData= new FormData();
         formData.append("file", message.file);
-        const response= await fetch(`http://localhost:5000/api/messages/saveFile`,{
+        const response= await fetch(`https://mywhatsapp-ymha.onrender.com/api/messages/saveFile`,{
           method: "POST",
           headers: {
             "auth-token": localStorage.getItem("token")
@@ -108,7 +108,7 @@ const ChatBar = () => {
 
     const addPersonInGroup= async()=>{
       const email= prompt("Enter email you want to add:");
-      await fetch(`http://localhost:5000/api/messages/addperson/${conversation._id}`, {
+      await fetch(`https://mywhatsapp-ymha.onrender.com/api/messages/addperson/${conversation._id}`, {
         method: "POST",
         headers: {
           "auth-token": localStorage.getItem("token"),
