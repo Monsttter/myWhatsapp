@@ -1,5 +1,6 @@
 import express from "express";
 import connectToMongo from "./db.js";
+import 'dotenv/config';
 import authRoutes from "./routes/auth.js";
 import messageRoutes from "./routes/message.js";
 import cors from "cors";
@@ -16,7 +17,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 connectToMongo();
 
 const app= express();
-const port= 5000;
+const port= process.env.PORT || 5000;
 const server = createServer(app);
 const io = new Server(server, {
   cors: {
@@ -50,8 +51,8 @@ io.use((socket, next)=>{
   connectedUsers.set(preload.user.id, socket.id);
 
   socket.request.user= preload.user;
-
-  io.emit("onlineUser", socket.request.user.id);
+  
+  socket.broadcast.emit("onlineUser", socket.request.user.id);
   socket.emit("onlineUsers", Array.from(connectedUsers.keys()));
   
   next();

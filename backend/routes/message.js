@@ -6,9 +6,10 @@ import multer  from "multer";
 import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
 import User from "../models/User.js";
+import upload from "../upload.js";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const upload = multer({ dest: path.join(__dirname, "..", "public/files/") });
+// const upload = multer({ dest: path.join(__dirname, "..", "public/files/") });
 const router= express.Router();
 
 // Route 1: Create a conversation using POST: "/createconversation". Authentication required

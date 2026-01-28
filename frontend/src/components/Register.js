@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router';
+import { register } from '../api/auth';
 
 const Register = () => {
 
@@ -24,10 +25,7 @@ const Register = () => {
             formData.append(key, credentials[key]);
         }
         // console.log()
-        const response= await fetch("https://mywhatsapp-ymha.onrender.com/api/auth/register", {
-            method: "POST",
-            body: formData
-        });
+        const response= await register(formData);
         const data= await response.json();
 
         // console.log(data, response.status);

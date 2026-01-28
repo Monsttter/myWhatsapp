@@ -15,12 +15,12 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="navbar navbar-expand-lg" style={{height: "8vh", color: "white", backgroundColor: "#212529"}}>
-  <div className="container-fluid">
-    <Link className="navbar-brand" to="/" style={{color: "white"}}><h2> myWhatsApp</h2></Link>
-    <button className="btn" style={{backgroundColor: "#626265"}} onClick={handleClick}>Logout</button>
-  </div>
-</nav>
+    <nav class="navbar bg-dark navbar-expand-lg" style={{ padding: "0", height: "8%", color: "white"}} data-bs-theme="dark">
+      <div class="container-fluid">
+        <Link class="navbar-brand" to="/">myWhatsApp</Link>
+        <button className="btn" style={{backgroundColor: "#626265"}} onClick={handleClick}>Logout</button>
+      </div>
+    </nav>
   )
 }
 

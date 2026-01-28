@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router';
+import { login } from '../api/auth';
 
 const Login = () => {
 
@@ -14,13 +15,7 @@ const Login = () => {
 
     const handleSubmit= async(e)=>{
         e.preventDefault();
-        const response= await fetch("https://mywhatsapp-ymha.onrender.com/api/auth/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(credentials)
-        });
+        const response= await login(credentials);
         const data= await response.json();
 
         // console.log(data);

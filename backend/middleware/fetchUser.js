@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-const JWT_SECRET= "Thisismysecret";
+const JWT_SECRET= process.env.JWT_SECRET;
 
 const fetchUser= (req, res, next)=>{
     try {

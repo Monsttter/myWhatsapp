@@ -7,13 +7,14 @@ import multer from "multer";
 import Conversation from "../models/Conversation.js";
 import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
+import upload from "../upload.js";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const upload = multer({ dest: path.join(__dirname, "..", "public/profilePhotos/") });
+// const upload = multer({ dest: path.join(__dirname, "..", "public/profilePhotos/") });
 
 const router= express.Router();
 const saltRounds = 10;
-const JWT_SECRET= "Thisismysecret";
+const JWT_SECRET= process.env.JWT_SECRET;
 
 // Route 1: Register a user using POST : "/register". No Authentication required
 router.post("/register", upload.single('profilePhoto'), async(req, res)=>{
